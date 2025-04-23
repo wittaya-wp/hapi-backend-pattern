@@ -1,51 +1,58 @@
 # Backend Example
 
-This repository contains a backend example project designed to demonstrate best practices for building and structuring backend applications using Prisma, Hapi, Zod, and Swagger.
+This repository demonstrates best practices for building scalable backend applications using modern tools and frameworks like Prisma, Hapi, Zod, and Swagger.
 
 ## Features
 
-- RESTful API endpoints
-- Authentication and authorization
-- Database integration with Prisma
-- Input validation using Zod
-- API documentation with Swagger
-- Scalable architecture
+- **RESTful API Endpoints**: Easily extendable endpoints for CRUD operations.
+- **Database Integration**: Powered by Prisma ORM with PostgreSQL.
+- **Input Validation**: Robust validation using Zod schemas.
+- **API Documentation**: Auto-generated Swagger documentation.
+- **Scalable Architecture**: Modular and maintainable folder structure.
+- **Environment Configuration**: Secure and flexible `.env` support.
 
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/) (v20 or later)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+- PostgreSQL database instance
 
 ## Installation
 
-1. Clone the repository:
-  ```bash
-  git clone https://github.com/your-username/backend-example.git
-  cd backend-example
-  ```
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/backend-example.git
+   cd backend-example
+   ```
 
-2. Install dependencies:
-  ```bash
-  npm install
-  ```
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-3. Set up environment variables:
-  - Create a `.env` file in the root directory.
-  - Add the following variables:
-    ```env
-    PORT=3000
-    DATABASE_URL=postgresql://user:password@localhost:5432/backend-example
-    JWT_SECRET=your-secret-key
-    ```
+3. **Set up environment variables**:
+   - Create a `.env` file in the root directory.
+   - Add the following variables:
+     ```env
+     PORT=3000
+     DATABASE_URL=postgresql://user:password@localhost:5432/backend-example
+     ```
+
+4. **Run database migrations**:
+   ```bash
+   npx prisma migrate dev
+   ```
 
 ## Usage
 
-1. Start the development server:
-  ```bash
-  npm run dev
-  ```
+1. **Start the development server**:
+   ```bash
+   npm run dev
+   ```
 
-2. Access the API at `http://localhost:3000`.
+2. **Access the API**:
+   - Base URL: `http://localhost:3000`
+   - Swagger documentation: `http://localhost:3000/documentation`
 
 ## Scripts
 
@@ -60,35 +67,43 @@ This repository contains a backend example project designed to demonstrate best 
 
 ```
 backend-example/
-├── src/
-│   ├── controllers/
-│   ├── models/
-│   ├── routes/
-│   ├── services/
-│   ├── utils/
-│   ├── validators/  # Zod schemas
-│   └── app.js
-├── prisma/
+├── prisma/               # Prisma schema and migrations
 │   ├── schema.prisma
 │   └── migrations/
-├── tests/
-├── .env.example
-├── package.json
-└── README.md
+├── src/                  # Application source code
+│   ├── controllers/      # Route handlers
+│   ├── plugins/          # Hapi plugins (e.g., Prisma, Swagger)
+│   ├── routes/           # API route definitions
+│   ├── services/         # Business logic and database interactions
+│   ├── utils/            # Utility functions
+│   ├── validations/      # Zod schemas for validation
+├── .env.example          # Example environment variables
+├── package.json          # Project metadata and dependencies
+├── README.md             # Project documentation
+└── server.js             # Application entry point
 ```
 
 ## API Documentation
 
-API documentation is available at `/docs` when the server is running. It is generated using Swagger.
+The API documentation is auto-generated using Swagger and is available at `/documentation` when the server is running. It provides detailed information about all available endpoints, including request and response schemas.
 
 ## Contributing
 
-Contributions are welcome! Please follow these steps:
+Contributions are welcome! To contribute:
 
 1. Fork the repository.
-2. Create a new branch: `git checkout -b feature-name`.
-3. Commit your changes: `git commit -m 'Add feature'`.
-4. Push to the branch: `git push origin feature-name`.
+2. Create a new branch:
+   ```bash
+   git checkout -b feature-name
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m "Add feature"
+   ```
+4. Push to your branch:
+   ```bash
+   git push origin feature-name
+   ```
 5. Open a pull request.
 
 ## License
@@ -97,4 +112,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
 
-For questions or feedback, please contact [your-email@example.com].
+For questions or feedback, please contact [wittaya.wipratoom@gmail.com].

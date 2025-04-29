@@ -43,6 +43,17 @@ This repository demonstrates best practices for building scalable backend applic
    npx prisma migrate dev
    ```
 
+## Environment Variables
+
+The `.env` file is used to configure the application. Below are the required variables and their descriptions:
+
+- `PORT`: The port number on which the server will run (e.g., `3000`).
+- `DATABASE_URL`: The connection string for the PostgreSQL database (e.g., `postgresql://user:password@localhost:5432/backend-example`).
+- `NODE_ENV`: The environment mode (e.g., `development`, `production`).
+- `SECRET_KEY`: A secret key for signing JSON Web Tokens (if applicable).
+
+Ensure that sensitive values like `DATABASE_URL` and `JWT_SESECRET_KEYCRET` are kept secure and not shared publicly.
+
 ## Usage
 
 1. **Start the development server**:

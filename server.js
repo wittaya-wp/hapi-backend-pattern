@@ -3,11 +3,12 @@ const Hapi = require('@hapi/hapi');
 const { prismaPlugin } = require('./src/plugins/prisma');
 const routes = require('./src/routes');
 const { swaggerPlugin } = require('./src/plugins/swagger');
+const { authPlugin } = require('./src/plugins/auth');
 
 const init = async () => {
   const server = Hapi.server({
     port: process.env.PORT || 3000,
-    host: 'localhost',
+    host: '0.0.0.0',
     routes: {
       validate: {
         failAction: async (request, h, err) => {
@@ -16,6 +17,9 @@ const init = async () => {
       }
     }
   });
+
+  await server.register(authPlugin);
+  // Register the authentication plugin to handle JWT authentication
 
   await server.register(prismaPlugin);
   // Register the Prisma plugin to make it available in the server context

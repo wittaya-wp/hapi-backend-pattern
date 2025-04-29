@@ -19,7 +19,6 @@ const validateZod = (schema) => async (value, options) => {
 const getAllUsers = {
   description: 'Get list of all users',
   tags: ['api', 'user'],
-  auth: false,
   handler: async (request, h) => {
     try {
       const users = await userService.getAllUsers();
